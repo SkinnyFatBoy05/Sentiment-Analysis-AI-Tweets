@@ -1,53 +1,77 @@
-# Sentiment Analysis of Tweets
+# Sentiment Analysis on AI Tweets
 
-This project analyzes the sentiment of tweets using Natural Language Processing (NLP) techniques. The analysis involves preprocessing, visualizing data, and building a sentiment classifier. The goal is to categorize tweets into Positive, Negative, or Neutral sentiments.
+## Description
 
-## Introduction
-
-This project aims to perform sentiment analysis on a large set of tweets. The sentiment analysis is done using various NLP techniques such as word clouds, time series analysis, and sentiment classification using a logistic regression model.
+This project performs sentiment analysis on a large dataset of tweets related to AI. The primary objective is to classify tweets into positive, negative, and neutral sentiments using various text processing and machine learning techniques.
 
 ## Installation
 
+To run this project locally, follow these steps:
+
 1. Clone the repository:
-   ```bash
-   git clone https://github.com/SkinnyFatBoy05/sentiment-analysis.git
-   ```
+    ```bash
+    git clone https://github.com/SkinnyFatBoy05/Sentiment-Analysis-AI-Tweets.git
+    ```
 2. Navigate to the project directory:
-   ```bash
-   cd sentiment-analysis
-   ```
+    ```bash
+    cd Sentiment-Analysis-AI-Tweets
+    ```
 3. Install the required dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
+    ```bash
+    pip install -r requirements.txt
+    ```
 
 ## Usage
 
-1. Place your dataset (`sentiment.csv`) in the project's root directory.
-2. Run the Jupyter notebook `Sentiment.ipynb` to perform the analysis.
+1. Import the necessary libraries:
+    ```python
+    import numpy as np
+    import pandas as pd
+    import matplotlib.pyplot as plt
+    import seaborn as sns
+    from wordcloud import WordCloud, STOPWORDS
+    from nltk.sentiment import SentimentIntensityAnalyzer
+    from sklearn.model_selection import train_test_split
+    from sklearn.feature_extraction.text import TfidfVectorizer
+    from sklearn.linear_model import LogisticRegression
+    from sklearn.metrics import accuracy_score
+    ```
 
-### Steps in the Notebook:
+2. Load and explore the dataset:
+    ```python
+    df = pd.read_csv('sentiment.csv')
+    df.head()
+    ```
 
-- **Data Loading:** Load the tweet dataset and explore the basic structure.
-- **Preprocessing:** Handle missing data, convert date columns, and extract relevant features.
-- **Visualization:** Generate word clouds, time series plots, and distribution charts for sentiment analysis.
-- **Sentiment Classification:** Train a Logistic Regression model using TF-IDF vectorization to classify tweets into Positive, Negative, or Neutral categories.
-- **Results Visualization:** Display the results of sentiment analysis using various plots.
+3. Perform data preprocessing:
+    - Handle missing values.
+    - Convert the 'Date' column to datetime format.
+    - Extract features like year, month, day, etc.
 
-## Features
+4. Visualize the data:
+    - Generate word clouds for tweets with different sentiments.
+    - Plot time variation of tweet counts.
+    - Analyze sentiment distribution over time.
 
-- Word cloud visualization for prevalent words in tweets.
-- Time series analysis of tweet volume over different periods.
-- Sentiment classification using a logistic regression model.
-- Comparative analysis of tweet sentiment across different months.
-- Visual representation of sentiment distribution over time.
+5. Sentiment Analysis:
+    - Use the VADER sentiment analyzer to classify tweets.
+    - Train a Logistic Regression model using TF-IDF features for sentiment classification.
+    - Evaluate the model's performance.
+
+6. Visualize Results:
+    - Plot the sentiment distribution as pie charts and histograms.
+    - Analyze trends in tweet sentiments over time.
+
+## Dataset
+
+- The dataset used for this project consists of a large collection of tweets related to AI. It includes columns for the tweet text, date, user, and other metadata.
+- Missing values were handled, and data was preprocessed for better analysis.
 
 ## Results
 
-- Achieved a sentiment classification accuracy of **87.42%** using Logistic Regression.
-- Visualized sentiment trends over time, providing insights into how sentiment fluctuates.
-- Displayed prevalent words in Positive, Negative, and Neutral tweets.
+- The sentiment analysis model achieved an accuracy of 87.42% using Logistic Regression with TF-IDF features.
+- Visualizations such as word clouds and time-series plots provided insights into the prevalent words and sentiment trends over time.
 
-## Contributing
+## Contributions
 
-Contributions are welcome! Please feel free to submit a pull request or open an issue to discuss potential changes.
+Feel free to contribute to this project by submitting a pull request. Any improvements or additional features are welcome!
